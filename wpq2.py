@@ -9,4 +9,4 @@ def convert_f_to_c(temp_in_fahrenheit):
     Returns:
         A float representing a temperature in degrees Celcius, rounded to 1 decimal place.
     """
-    return 
+    celcius = temp_in_fahrenheit
