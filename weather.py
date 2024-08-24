@@ -51,7 +51,12 @@ def calculate_mean(weather_data):
     Returns:
         A float representing the mean value.
     """
-    pass
+    weather_data_float = []
+    for item in weather_data:
+        weather_data_float.append(float(item))
+
+    mean = float(sum(weather_data_float) / len(weather_data_float)) 
+    return mean
 
 
 def load_data_from_csv(csv_file):
@@ -62,7 +67,15 @@ def load_data_from_csv(csv_file):
     Returns:
         A list of lists, where each sublist is a (non-empty) line in the csv file.
     """
-    pass
+    load_data_from_csv = []
+    with open(csv_file) as file:
+        reader = csv.reader(file)
+        for row in reader:
+            if row:  # Ensure the row is not empty
+                load_data_from_csv.append(row)
+    return load_data_from_csv
+
+
 
 
 def find_min(weather_data):
