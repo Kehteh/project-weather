@@ -90,7 +90,27 @@ def find_min(weather_data):
     Returns:
         The minimum value and it's position in the list. (In case of multiple matches, return the index of the *last* example in the list.)
     """
-    pass
+    if not weather_data:
+        return ()
+
+    data = []
+
+
+    for item in weather_data:
+        try:
+            data.append(float(item))
+        except ValueError:
+            continue
+
+
+    min_value = data[0]
+    min_index = 0
+    for index in range (len(data)):
+        if data[index] <= min_value:
+            min_value = data[index]
+            min_index = index
+
+    return min_value, min_index
 
 
 def find_max(weather_data):
@@ -101,7 +121,27 @@ def find_max(weather_data):
     Returns:
         The maximum value and it's position in the list. (In case of multiple matches, return the index of the *last* example in the list.)
     """
-    pass
+    if not weather_data:
+        return ()
+
+    data = []
+
+
+    for item in weather_data:
+        try:
+            data.append(float(item))
+        except ValueError:
+            continue
+
+
+    max_value = data[0]
+    max_index = 0
+    for index in range (len(data)):
+        if data[index] >= min_value:
+            max_value = data[index]
+            max_index = index
+
+    return max_value, max_index
 
 
 def generate_summary(weather_data):

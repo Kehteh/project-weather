@@ -12,10 +12,11 @@ def load_data_from_csv(csv_file):
     data = []
     with open(csv_file) as file:
         reader = csv.reader(file)
-        next(reader)
+        next(reader)  # Skip the header row
         
         for row in reader:
             if row: 
+                # Convert min and max to integers
                 data.append([row[0], int(row[1]), int(row[2])])
     
     return data
