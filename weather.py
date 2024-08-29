@@ -137,7 +137,7 @@ def find_max(weather_data):
     max_value = data[0]
     max_index = 0
     for index in range (len(data)):
-        if data[index] >= min_value:
+        if data[index] >= max_value:
             max_value = data[index]
             max_index = index
 
