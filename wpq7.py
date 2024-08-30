@@ -13,12 +13,9 @@ def generate_summary(weather_data):
         return "no data available"
     
     # variables
-
-    # Initialize using the first day's temperatures
-    first_day = weather_data[0]
-    highest_temp = first_day[2]  # First day's max temperature
-    lowest_temp = first_day[1]   # First day's min temperature
-    highest_temp_date = datetime.fromisoformat(first_day[0]).strftime('%Y-%m-%d')
+    highest_temp = weather_data[0][2]
+    lowest_temp = weather_data[0][1]
+    highest_temp_date = datetime.fromisoformat(weather_data[0][0]).strftime('%Y-%m-%d')
     lowest_temp_date = highest_temp_date
 
     total_min_temp = 0
@@ -39,15 +36,15 @@ def generate_summary(weather_data):
             lowest_temp = min_temp
             lowest_temp_date = date
 
-    avg_min_temp = total_min_temp / len(weather_data)
-    avg_max_temp = total_max_temp / len(weather_data)
+    ave_min_temp = total_min_temp / len(weather_data)
+    ave_max_temp = total_max_temp / len(weather_data)
 
     summary = (
-        f"Summary for {len(weather_data)} days:\n"
-        f"Mean Minimum Temperature: {avg_min_temp:.2f}\n"
-        f"Mean Maximum Temperature: {avg_max_temp:.2f}\n"
-        f"Highest Temperature: {highest_temp} on {highest_temp_date}\n"
-        f"Lowest Temperature: {lowest_temp} on {lowest_temp_date}"
+        f"5 day overview/n"
+        f"  The lowest temperature will be {lowest_temp:.1f}°C, and will occur on {lowest_temp_date}.\n"
+        f"  The highest temperature will be {highest_temp:.1f}°C, and will occur on {highest_temp_date}.\n"
+        f"  The average low this week is {ave_min_temp:.1f}°C.\n"
+        f"  The average high this week is {ave_max_temp:.1f}°C.\n"
     )
     
     return summary
