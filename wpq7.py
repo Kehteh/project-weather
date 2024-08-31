@@ -2,49 +2,40 @@ import csv
 from datetime import datetime
 
 def generate_summary(weather_data):
-    """Outputs a summary for the given weather data.
+#     """Outputs a summary for the given weather data.
 
-    Args:
-        weather_data: A list of lists, where each sublist represents a day of weather data.
-    Returns:
-        A string containing the summary information.
-    """
+#     Args:
+#         weather_data: A list of lists, where each sublist represents a day of weather data.
+#     Returns:
+#         A string containing the summary information.
+#     """
     if not weather_data:
         return "no data available"
     
-    # variables
-    highest_temp = weather_data[0][2]
-    lowest_temp = weather_data[0][1]
-    highest_temp_date = datetime.fromisoformat(weather_data[0][0]).strftime('%Y-%m-%d')
-    lowest_temp_date = highest_temp_date
-
-    total_min_temp = 0
-    total_max_temp = 0
+    date_list = []
+    min_list = []
+    max_list = []
 
     for day in weather_data:
-        date_str, min_temp, max_temp = day
-        date = datetime.fromisoformat(date_str).strftime('%Y-%m-%d')
-        
-        total_min_temp += min_temp
-        total_max_temp += max_temp
-        
-        if max_temp > highest_temp:
-            highest_temp = max_temp
-            highest_temp_date = date
-        
-        if min_temp < lowest_temp:
-            lowest_temp = min_temp
-            lowest_temp_date = date
+        date_list.append(convert_date(day[0]))
+        min_list.append(convert_f_to_c(day[1]))
+        max_list.append(convert_f_to_c(day[2]))
 
-    ave_min_temp = total_min_temp / len(weather_data)
-    ave_max_temp = total_max_temp / len(weather_data)
+    min_value, min_position = find_min(min_list)
+    max_value, max_position = find_max(max_list)
+
+    mean_min_list = calculate_mean(min_list)
+    mean_max_list = calculate_mean(max_list)
+
+    num_days = len(weather_data)
+
 
     summary = (
-        f"5 day overview/n"
-        f"  The lowest temperature will be {lowest_temp:.1f}°C, and will occur on {lowest_temp_date}.\n"
-        f"  The highest temperature will be {highest_temp:.1f}°C, and will occur on {highest_temp_date}.\n"
-        f"  The average low this week is {ave_min_temp:.1f}°C.\n"
-        f"  The average high this week is {ave_max_temp:.1f}°C.\n"
-    )
-    
+        f"{num_days} Day Overview\n"
+        f"  The lowest temperature will be {min_value:.1f}°C, and will occur on {date_list[min_position]}.\n"
+        f"  The highest temperature will be {max_value:.1f}°C, and will occur on {date_list[max_position]}.\n"
+        f"  The average low this week is {mean_min_list:.1f}°C.\n"
+        f"  The average high this week is {mean_max_list:.1f}°C.\n"
+        )
     return summary
+

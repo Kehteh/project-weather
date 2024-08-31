@@ -9,24 +9,26 @@ def find_max(weather_data):
     Returns:
         The maximum value and it's position in the list. (In case of multiple matches, return the index of the *last* example in the list.)
     """
-    if not weather_data:
-        return ()
+    # if not weather_data:
+    #     return ()
 
-    data = []
-
-
-    for item in weather_data:
-        try:
-            data.append(float(item))
-        except ValueError:
-            continue
+    # data = []
 
 
-    max_value = data[0]
-    max_index = 0
-    for index in range (len(data)):
-        if data[index] >= max_value:
-            max_value = data[index]
-            max_index = index
+    # for item in weather_data:
+    #     try:
+    #         data.append(float(item))
+    #     except ValueError:
+    #         continue
 
-    return max_value, max_index
+
+    # max_value = data[0]
+    # max_index = 0
+    # for index in range (len(data)):
+    #     if data[index] >= max_value:
+    #         max_value = data[index]
+    #         max_index = index
+
+    # return max_value, max_index
+
+    # "find last occurrence"

@@ -12,21 +12,29 @@ def find_min(weather_data):
     if not weather_data:
         return ()
 
-    data = []
+    # data = []
 
 
-    for item in weather_data:
-        try:
-            data.append(float(item))
-        except ValueError:
-            continue
+    # for item in weather_data:
+    #     try:
+    #         data.append(float(item))
+    #     except ValueError:
+    #         continue
 
 
-    min_value = data[0]
-    min_index = 0
-    for index in range (len(data)):
-        if data[index] <= min_value:
-            min_value = data[index]
-            min_index = index
+    # min_value = data[0]
+    # min_index = 0
+    # for index in range (len(data)):
+    #     if data[index] <= min_value:
+    #         min_value = data[index]
+    #         min_index = index
 
-    return min_value, min_index
+    # return min_value, min_index
+
+    # flip it and reverse it
+
+    temps = [float(item) for item in reversed(weather_data)]
+    min_value = min(temps)
+    min_value_index = len(weather_data) - 1 - temps.index(min_value)
+    return min_value, min_value_index
+
