@@ -1,7 +1,6 @@
 import csv
 from datetime import datetime
 
-
 def generate_daily_summary(weather_data):
     """Outputs a daily summary for the given weather data.
 
@@ -16,12 +15,9 @@ def generate_daily_summary(weather_data):
         date = data[0]
         min_temp_c = convert_f_to_c(float(data[1]))
         max_temp_c = convert_f_to_c(float(data[2]))
-
-
-
-    daily_summary += (
-        f"---- {convert_date(date)} ----\n"
-        f"  Minimum Temperature: {format_temperature(min_temp_c)}°C\n"
-        f"  Maximum Temperature: {format_temperature(max_temp_c)}°C\n\n"
-    )
+        daily_summary += (
+            f"---- {convert_date(date)} ----\n"
+            f"  Minimum Temperature: {format_temperature(min_temp_c)}\n"
+            f"  Maximum Temperature: {format_temperature(max_temp_c)}\n\n"
+        )
     return daily_summary
