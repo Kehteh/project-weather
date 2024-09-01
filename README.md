@@ -8,6 +8,3 @@ Starter code for the Plus Weather project.
 - [X] Verify that everything works as intended by running the tests with `python run_tests.py`.
 
 [![Tests](https://github.com/Kehteh/project-weather/actions/workflows/tests.yml/badge.svg)](https://github.com/Kehteh/project-weather/actions/workflows/tests.yml)
-
-![Picture demonstrating that my functions pass the tests part 1.](./img/pyproject1.png)
-![Picture demonstrating that my functions pass the tests part .](./img/pyproject2.png)
